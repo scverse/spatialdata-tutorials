@@ -50,3 +50,6 @@ notebooks/examples/logs/
 node_modules/
 notebooks/examples/_latest_run_notebook.ipynb
 notebooks/developers_resources/storage_format/_latest_run_notebook.ipynb
+
+# raw data symlinked in by spatialdata-integration-testing (create_cells_dataset.ipynb)
+notebooks/examples/Xenium_Prime_Cervical_Cancer_FFPE_outs
