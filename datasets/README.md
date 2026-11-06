@@ -66,7 +66,9 @@ particular:
       var olderSection = document.getElementById('older-versions-section');
       var toggleOlder = document.getElementById('toggle-older-versions');
       var olderContent = document.getElementById('older-versions-content');
-      var BASE_URL = 'https://s3.embl.de/spatialdata/spatialdata-sandbox/';
+      // File names contain '+' (e.g. "0.8.1.dev38+gce4013898"); buildUrl's encodeURIComponent
+      // turns it into %2B, which the server needs (a raw '+' is read as a space).
+      var BASE_URL = 'https://exampledata.scverse.org/spatialdata/spatialdata-sandbox/';
 
       // Suffix values are validated server-side by the Sphinx extension
       // (alphanumerics, dots, underscores, hyphens, plus signs only) before
