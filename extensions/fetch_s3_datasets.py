@@ -38,7 +38,16 @@ _VALID_SUFFIX_RE = re.compile(r"^(_spatialdata_.+|_dev|v\d.*)$")
 # signs are allowed.
 _SAFE_TOKEN_RE = re.compile(r"^[A-Za-z0-9._+\-]*$")
 
-S3_LIST_URL = "https://s3.embl.de/spatialdata/?list-type=2&prefix=spatialdata-sandbox/&delimiter=/"
+# The converted datasets are uploaded by scverse/spatialdata-integration-testing to the scverse
+# S3 bucket, served at https://exampledata.scverse.org/spatialdata/spatialdata-sandbox/ (formerly
+# https://s3.embl.de/spatialdata/spatialdata-sandbox/). Downloads go through that CDN; the
+# listing goes to the bucket's S3 API endpoint, because the CDN can't list. Anonymous listing is
+# enabled on the bucket (scverse, 2026-11-09).
+S3_PREFIX = "spatialdata/spatialdata-sandbox/"
+S3_LIST_URL = (
+    "https://scverse-exampledata.s3.eu-west-1.amazonaws.com/"
+    f"?list-type=2&prefix={S3_PREFIX}&delimiter=/"
+)
 
 # Known dataset IDs – sorted longest-first so that the greedy prefix
 # matching picks the most specific ID (e.g. ``visium_hd_3.0.0_io``
@@ -81,7 +90,7 @@ def _fetch_and_write(app):
     for key_el in root.iter(f"{ns}Key"):
         key = key_el.text or ""
         if key.endswith(".zip"):
-            zip_files.append(key.removeprefix("spatialdata-sandbox/"))
+            zip_files.append(key.removeprefix(S3_PREFIX))
 
     # Build map: dataset_id -> sorted list of suffixes
     result: dict[str, list[str]] = {did: [] for did in DATASET_IDS}
