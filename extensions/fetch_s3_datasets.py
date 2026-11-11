@@ -40,9 +40,9 @@ _SAFE_TOKEN_RE = re.compile(r"^[A-Za-z0-9._+\-]*$")
 
 # The converted datasets are uploaded by scverse/spatialdata-integration-testing to the scverse
 # S3 bucket, served at https://exampledata.scverse.org/spatialdata/spatialdata-sandbox/ (formerly
-# https://s3.embl.de/spatialdata/spatialdata-sandbox/). The listing goes to the bucket's S3
-# endpoint: the CDN in front of it serves objects only. This needs public `s3:ListBucket`
-# on the prefix.
+# https://s3.embl.de/spatialdata/spatialdata-sandbox/). Downloads go through that CDN; the
+# listing goes to the bucket's S3 API endpoint, because the CDN can't list. Anonymous listing is
+# enabled on the bucket (scverse, 2026-11-09).
 S3_PREFIX = "spatialdata/spatialdata-sandbox/"
 S3_LIST_URL = (
     "https://scverse-exampledata.s3.eu-west-1.amazonaws.com/"
