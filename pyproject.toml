@@ -41,6 +41,35 @@ pre = [
     "spatialdata>=0.4.0rc0"
 ]
 
+[dependency-groups]
+# What the notebooks in notebooks/examples import, so they can run (e.g. in spatialdata-integration-testing:
+# `pip install --group pyproject.toml:examples`). The docs build does not execute notebooks and doesn't need it.
+examples = [
+    "spatialdata",
+    "spatialdata-io",
+    "spatialdata-plot",
+    "squidpy",
+    "anndata",
+    "annsel",
+    "dask",
+    "geopandas",
+    "matplotlib",
+    "monai",
+    "numpy",
+    "pandas",
+    "pytest",
+    "pytorch-lightning",
+    "requests",
+    "scanpy",
+    "scikit-image",
+    "scipy",
+    "shapely",
+    "torch",
+    # 0.6.0 breaks sc.pp.neighbors on the pynndescent path (n_obs >= 8192) with a numba TypingError
+    # (lmcinnes/umap#1335, fixed by #1337); drop the exclusion once 0.6.1 is released
+    "umap-learn!=0.6.0",
+]
+
 [tool.ruff]
 line-length = 120
 exclude = ["notebooks/developers_resources/storage_format/__template__.ipynb"]
