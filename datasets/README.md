@@ -66,8 +66,6 @@ particular:
       var olderSection = document.getElementById('older-versions-section');
       var toggleOlder = document.getElementById('toggle-older-versions');
       var olderContent = document.getElementById('older-versions-content');
-      // File names contain '+' (e.g. "0.8.1.dev38+gce4013898"); buildUrl's encodeURIComponent
-      // turns it into %2B, which the server needs (a raw '+' is read as a space).
       var BASE_URL = 'https://exampledata.scverse.org/spatialdata/spatialdata-sandbox/';
       // The CDN has no index page; the raw bucket listing (same as fetch_s3_datasets.py uses) is the fallback.
       var LIST_URL = 'https://scverse-exampledata.s3.eu-west-1.amazonaws.com/?list-type=2&prefix=spatialdata/spatialdata-sandbox/&delimiter=/';
@@ -80,6 +78,8 @@ particular:
 
       function buildUrl(datasetId, suffix) {
         if (!SAFE_RE.test(datasetId) || !SAFE_RE.test(suffix)) return null;
+        // File names contain '+' (e.g. "0.8.1.dev38+gce4013898"); encodeURIComponent turns it
+        // into %2B, which the server needs (a raw '+' is read as a space).
         return BASE_URL + encodeURIComponent(datasetId + suffix + '.zip');
       }
 
