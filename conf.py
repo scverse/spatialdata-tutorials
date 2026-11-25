@@ -119,7 +119,6 @@ exclude_patterns = [
     "notebooks/examples/stereoseq_data/*",
 ]
 # Ignore warnings.
-nitpicky = False  # TODO: solve upstream.
 nitpick_ignore = [
     # these two files are not available when building the docs from
     # spatialdata-notebook (but they are when building the docs from spatialdata)
