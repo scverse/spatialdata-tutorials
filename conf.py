@@ -87,11 +87,14 @@ source_suffix = {
 }
 
 intersphinx_mapping = {
-    "anndata": ("https://anndata.readthedocs.io/en/stable/", None),
+    "anndata": ("https://anndata.scverse.org/en/stable/", None),
     "numpy": ("https://numpy.org/doc/stable/", None),
     "geopandas": ("https://geopandas.org/en/stable/", None),
     "xarray": ("https://docs.xarray.dev/en/stable/", None),
     "datatree": ("https://datatree.readthedocs.io/en/latest/", None),
+    "spatialdata": ("https://spatialdata.scverse.org/en/latest/", None),
+    "spatialdata_plot": ("https://spatialdata.scverse.org/projects/plot/en/latest/", None),
+    "spatialdata_io": ("https://spatialdata.scverse.org/projects/io/en/latest/", None),
 }
 
 
