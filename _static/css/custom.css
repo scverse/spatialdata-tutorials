@@ -9,3 +9,15 @@
     margin-bottom: 1.5rem;
     height: 280px;
 }
+
+/* The sidebar links to the rest of spatialdata.scverse.org (root-relative, see extensions/toctree_import.py)
+   stay on the same site: no external-link icon. GitHub, Discourse etc. keep it. */
+nav.bd-links li > a.reference.external[href^="/"]::after,
+nav.bd-links li > a.reference.external[href^="https://spatialdata.scverse.org/"]::after {
+    content: none;
+}
+
+/* Reduce the font size in data frames - See https://github.com/scverse/cookiecutter-scverse/issues/193 */
+div.cell_output table.dataframe {
+    font-size: 0.8em;
+}

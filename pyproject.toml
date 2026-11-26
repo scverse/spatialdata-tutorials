@@ -8,7 +8,7 @@ name = "spatialdata_notebooks"
 version = "0.0.1"
 description = "Tutorials and examples for SpatialData"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 license = {file = "LICENSE"}
 authors = [
     {name = "scverse"},
@@ -16,7 +16,7 @@ authors = [
 maintainers = [
     {name = "scverse", email = "core@scverse.org"},
 ]
-urls.Documentation = "https://spatialdata-notebooks.readthedocs.io/"
+urls.Documentation = "https://spatialdata.scverse.org/projects/tutorials/"
 urls.Source = "https://github.com/scverse/spatialdata-notebooks"
 urls.Home-page = "https://github.com/scverse/spatialdata-notebooks"
 dependencies = ["spatialdata", "squidpy>=1.6.2"]
@@ -27,15 +27,10 @@ dev = [
 	"watermark"
 ]
 doc = [
-    "sphinx>=4.5",
-    "sphinx-book-theme>=0.3.3",
-    "myst-nb",
+    "scverse-doc[full]>=0.6",
     "sphinxcontrib-bibtex>=1.0.0",
-    "sphinx-autodoc-typehints",
-	"sphinx-design",
     # For notebooks
     "ipython>=8.6.0",
-    "sphinx-copybutton",
 ]
 pre = [
     "spatialdata>=0.4.0rc0"

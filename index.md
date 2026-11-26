@@ -1,9 +1,12 @@
-```{eval-rst}
-.. toctree::
-  :maxdepth: 1
+# SpatialData tutorials
 
-  README.md
-  notebooks.md
-  datasets/README.md
-  references.md
+Hands-on notebooks for the SpatialData ecosystem, part of the [spatialdata documentation](inv:spatialdata:std:doc#index).
+
+- [Tutorials](notebooks.md): from the basics of the `SpatialData` object to technology-specific and advanced examples.
+- [Datasets](datasets/README.md): example datasets from different spatial omics technologies.
+
+The notebooks live in [scverse/spatialdata-tutorials](https://github.com/scverse/spatialdata-tutorials).
+
+```{toctree-import} spatialdata
+:source: index.md
 ```

@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # References
 
 ```{bibliography}
